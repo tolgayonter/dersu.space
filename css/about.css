@@ -1,0 +1,63 @@
+#particles-js {
+    background-image: none;
+}
+
+@font-face {
+    font-family: roboto;
+    src: url(../fonts/RobotoCondensed-Regular.ttf);
+}
+@font-face {
+    font-family: roboto-light;
+    src: url(../fonts/RobotoCondensed-Light.ttf);
+}
+
+.about {
+    position: absolute;
+    max-width: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.about h2 {
+    font-family: roboto;
+    font-size: 3rem;
+    color: rgb(64, 195, 255);
+}
+.about p {
+    font-family: roboto-light;
+    font-size: 1rem;
+    color: whitesmoke;
+}
+
+h3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: roboto-light;
+    font-size: 2.5rem;
+    color: rgb(64, 195, 255);
+    text-align: center;
+}
+h3 p {
+    color: whitesmoke;
+    font-size: 2.7rem;
+}
+
+/* ============== media query start ============== */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .about {
+        max-width: 60%;
+        top: 32%;
+        left: 25%;
+        transform: translate(-20%, -20%);
+    }
+    .about p {
+        font-size: 1.5vh;
+    }
+    .about h2 {
+        font-size: 4vh;
+    }
+
+}
+/* ============== media query end ============== */
