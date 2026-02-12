@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import { resolve } from 'path'
+import { renameSync, mkdirSync, existsSync } from 'fs'
 
 export default defineConfig({
   appType: 'mpa',
@@ -26,6 +27,20 @@ export default defineConfig({
           }
           next()
         })
+      },
+      // After build, move about.html → about/index.html etc.
+      // so /about resolves on any web server without rewrites
+      closeBundle() {
+        const distDir = resolve(__dirname, 'dist')
+        const pages = ['about', 'portfolio', 'link', 'soon']
+        for (const page of pages) {
+          const htmlFile = resolve(distDir, `${page}.html`)
+          if (existsSync(htmlFile)) {
+            const dir = resolve(distDir, page)
+            mkdirSync(dir, { recursive: true })
+            renameSync(htmlFile, resolve(dir, 'index.html'))
+          }
+        }
       },
     },
   ],
