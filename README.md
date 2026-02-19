@@ -17,7 +17,7 @@ A static multi-page website for musician Dersu Doğan, built with Vite.
 ```
 ├── index.html          # Home page (Vite entry)
 ├── about.html          # About page
-├── portfolio.html      # Portfolio — Spotify, YouTube, SoundCloud embeds
+├── portfolio.html      # Portfolio — sidebar + 3-column card grid (standalone)
 ├── link.html           # External links
 ├── soon.html           # Placeholder page
 ├── vite.config.js      # Vite MPA config + clean URL plugin
@@ -71,16 +71,26 @@ dist/
 
 ## Design Decisions
 
-- **Bootstrap removed** — Bootstrap 4, jQuery, and Popper.js were vendored but unused (only `navbar-brand` referenced). Replaced with lean standalone CSS rules including a `box-sizing: border-box` and `margin: 0` reset. The vendored files remain in `public/` but are no longer loaded by any page
-- **Desktop-first responsive** — two breakpoints: 768px (tablet) and 480px (phone). All three CSS files (`style.css`, `about.css`, `portfolio.css`) use standard `max-width` media queries; the previous deprecated `min-device-width`/`max-device-width` syntax was removed
-- **Slide-out navigation** — desktop slides 25% revealing the nav panel; tablet slides 50%; phone slides 75% to maximize nav space on small screens
-- **Particles.js mobile optimization** — particle count reduced from 200 to 80 on screens < 768px for better performance on mobile devices. No other particles.js config is changed; the canvas auto-resizes via the library's built-in resize handler
-- **Fluid embeds** — YouTube iframes use `aspect-ratio` + `max-width` instead of hardcoded `width`/`height` HTML attributes, so they scale down on small screens
-- **About page** — biography text uses generous `rem`-based font sizes (1.15rem desktop, 0.95rem phone) with good line-height for readability; scrollable via `overflow-y: auto` on short viewports
-- **Content overflow safety** — `overflow-x: hidden` on body prevents horizontal scroll; the about biography block has `max-height: 85vh; overflow-y: auto` for long content on short viewports
-- **Portfolio standalone** — portfolio.html has its own CSS and does not share the slide-out nav; the brand link navigates back to the main site
-- All vendored libraries (Particles.js) are in `public/` so Vite serves them without processing — avoids bundling issues with legacy scripts
-- HTML files remain at root level as Vite MPA entry points; on build, they are restructured into `page/index.html` folders for clean URLs without server-side rewrites
+### Main site (index, about, link, soon)
+- **Bootstrap removed** — Bootstrap 4, jQuery, and Popper.js were vendored but unused. Replaced with lean standalone CSS. Vendored files remain in `public/` but are no longer loaded
+- **Desktop-first responsive** — two breakpoints: 768px (tablet) and 480px (phone). Standard `max-width` media queries
+- **Slide-out navigation** — desktop slides 25% revealing the nav panel; tablet 50%; phone 75%
+- **Particles.js mobile optimization** — particle count reduced from 200 to 80 on screens < 768px
+- **Content overflow safety** — `overflow-x: hidden` on body prevents horizontal scroll
+
+### Portfolio page (`/portfolio`)
+- **Standalone page** — has its own CSS (`portfolio.css`), does not share the slide-out nav from the main site
+- **Left sidebar** — fixed 220px sidebar with "Dersu" brand (Quinn font, links to `/`) and a list of all project names as anchor links. Contact link pushed to bottom via `margin-top: auto`. Semi-transparent background (`rgba(0,0,0,0.85)`) lets particles subtly show through
+- **3-column card grid** — CSS Grid (`repeat(3, 1fr)`) with 24px gaps. Each card has a thumbnail (cyan placeholder `rgb(64,195,255)`), title, date, and description. Cards link externally (YouTube, Spotify, SoundCloud, etc.)
+- **Card hover** — subtle `scale(1.02)` transform + thumbnail opacity shift
+- **Responsive** — tablet (≤1024px): 2 columns, sidebar narrows to 180px. Mobile (≤768px): 1 column, sidebar hidden behind hamburger menu that slides in as an overlay
+- **Hamburger toggle** — two-line icon animates to X on open, overlay click closes sidebar
+- **Particles.js** — same full-page fixed background as main site, behind all content (`z-index: 0`)
+- **Designed to grow** — adding a project means adding a card to HTML + a link to sidebar nav; grid auto-wraps
+
+### Shared
+- All vendored libraries (Particles.js) are in `public/` so Vite serves them without processing
+- HTML files remain at root level as Vite MPA entry points; on build, they are restructured into `page/index.html` folders for clean URLs
 - Apache `.htaccess` disables `DirectorySlash` and strips trailing slashes so URLs stay as `/about` (not `/about/`)
-- No templating or component extraction — pages share copy-pasted markup to keep the migration minimal
-- All HTML and CSS files are consistently formatted (2-space indentation) with descriptive section comments for maintainability
+- No templating or component extraction — pages share copy-pasted markup
+- All HTML and CSS files use descriptive section comments for maintainability
