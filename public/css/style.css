@@ -247,10 +247,11 @@ section.collapsed {
     left: 50%;
     transform: translate(-50%, -50%);
     margin: 0;
-    padding: clamp(60px, 15vh, 150px) 1rem 0;
+    padding: 0 1rem;
     width: 100%;
     max-width: 44rem;
     box-sizing: border-box;
+    z-index: 1;
 }
 
 #links li {
@@ -341,7 +342,7 @@ h4 a {
     }
 
     #links {
-        padding-top: clamp(40px, 10vh, 100px);
+        padding: 0 1rem;
     }
 
     #links li a {
@@ -387,7 +388,7 @@ h4 a {
     }
 
     #links {
-        padding-top: clamp(30px, 8vh, 80px);
+        padding: 0 1rem;
     }
 
     #links li a {

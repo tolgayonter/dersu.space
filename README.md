@@ -72,11 +72,10 @@ dist/
 ## Design Decisions
 
 ### Main site (index, about, link, soon)
-- **Bootstrap removed** — Bootstrap 4, jQuery, and Popper.js were vendored but unused. Replaced with lean standalone CSS. Vendored files remain in `public/` but are no longer loaded
-- **Desktop-first responsive** — two breakpoints: 768px (tablet) and 480px (phone). Standard `max-width` media queries
-- **Slide-out navigation** — desktop slides 25% revealing the nav panel; tablet 50%; phone 75%
-- **Particles.js mobile optimization** — particle count reduced from 200 to 80 on screens < 768px
-- **Content overflow safety** — `overflow-x: hidden` on body prevents horizontal scroll
+- **Bootstrap removed** — Bootstrap 4, jQuery, and Popper.js vendored files have been deleted from `public/`
+- **Flexbox centering** — inner pages (about, link, soon) use `display: flex` on the section container instead of fragile `position: absolute + transform: translate(-50%, -50%)`. Fixes link.html's off-center padding issue
+- **Contact** — all pages use `mailto:dersudoganmusic@gmail.com` instead of linking to the "soon" placeholder
+- **Navigation** — all pages include a "Work" link to `/portfolio`
 
 ### Portfolio page (`/portfolio`)
 - **Standalone page** — has its own CSS (`portfolio.css`), does not share the slide-out nav from the main site

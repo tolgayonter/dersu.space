@@ -58,6 +58,7 @@ h3 {
     font-size: 2.5rem;
     color: rgb(64, 195, 255);
     text-align: center;
+    z-index: 1;
 }
 
 h3 p {
