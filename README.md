@@ -75,3 +75,4 @@ dist/
 - HTML files remain at root level as Vite MPA entry points; on build, they are restructured into `page/index.html` folders for clean URLs without server-side rewrites
 - Apache `.htaccess` disables `DirectorySlash` and strips trailing slashes so URLs stay as `/about` (not `/about/`)
 - No templating or component extraction — pages share copy-pasted markup to keep the migration minimal
+- All HTML and CSS files are consistently formatted (2-space indentation) with descriptive section comments for maintainability

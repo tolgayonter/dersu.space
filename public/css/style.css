@@ -1,9 +1,21 @@
-html,body {
-	width:100%;
-    height:100%;
-    font-size:100%;
-	background:black;
+/* ==========================================================================
+   style.css — Main stylesheet for dersu.space
+   Used by: index.html, about.html, link.html, soon.html
+   ========================================================================== */
+
+/* ---------- Reset / Base ---------- */
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    font-size: 100%;
+    background: black;
 }
+
+/* ---------- Particles.js background ----------
+   Full-screen animated particle canvas with SVG eye logo centered behind it.
+   about.css overrides background-image to none on inner pages. */
 
 #particles-js {
     width: 100%;
@@ -15,16 +27,20 @@ html,body {
     background-repeat: no-repeat;
 }
 
+/* ---------- Custom font ---------- */
+
 @font-face {
     font-family: quinn;
     src: url(../fonts/Quinn.ttf);
 }
 
-/* ============== header start ============== */
+/* ---------- Header / Brand ---------- */
+
 header {
     display: flex;
     justify-content: center;
 }
+
 header .navbar-brand {
     color: whitesmoke;
     font-family: quinn;
@@ -33,25 +49,26 @@ header .navbar-brand {
     position: absolute;
     transition: 1.4s;
 }
-/* ============== header end ============== */
 
-/* ============== section start ============== */
+/* ---------- Main section ----------
+   The full-viewport content panel that slides left when nav is opened. */
+
 section {
     height: 100%;
     width: 100%;
     background-size: cover;
-
     position: absolute;
     z-index: 2;
     transition: 0.8s;
 }
+
 section.collapsed {
     transform: translateX(-25%);
-    /* width: 70%; */
 }
-/* ============== section end ============== */
 
-/* ============== navigation start ============== */
+/* ---------- Slide-out navigation ----------
+   Sits behind the main section, revealed when section slides left. */
+
 .navigation {
     position: absolute;
     top: 0;
@@ -59,11 +76,11 @@ section.collapsed {
     width: 25%;
     height: 100%;
     background-color: rgb(171, 193, 206);
-
     display: grid;
     place-items: center;
     z-index: 1;
 }
+
 .navigation ul {
     display: flex;
     flex-direction: column;
@@ -74,9 +91,11 @@ section.collapsed {
     justify-content: center;
     text-align: center;
 }
+
 .navigation ul li {
     list-style: none;
 }
+
 .navigation ul li a {
     display: block;
     color: whitesmoke;
@@ -85,17 +104,21 @@ section.collapsed {
     font-weight: 200;
     text-transform: uppercase;
 }
+
 .navigation ul li a:hover {
     background-color: whitesmoke;
     color: rgb(171, 193, 206);
 }
-/* rgb(171, 193, 206)
+
+/* Color palette reference:
+   rgb(171, 193, 206) — nav background / hover text
    rgb(10, 70, 119)
    rgb(17, 35, 44)
-   rgb(64, 195, 255)  */
-/* ============== navigation end ============== */
+   rgb(64, 195, 255) — accent blue (used in about.css) */
 
-/* ============== toggle start ============== */
+/* ---------- Hamburger toggle ----------
+   Two CSS pseudo-element lines that animate into an X when .collapsed. */
+
 .toggle {
     position: absolute;
     top: 2rem;
@@ -104,6 +127,7 @@ section.collapsed {
     height: 30px;
     cursor: pointer;
 }
+
 .toggle::before {
     content: '';
     position: absolute;
@@ -112,6 +136,7 @@ section.collapsed {
     height: 2px;
     background: whitesmoke;
 }
+
 .toggle::after {
     content: '';
     position: absolute;
@@ -120,6 +145,7 @@ section.collapsed {
     height: 2px;
     background: whitesmoke;
 }
+
 .collapsed .toggle::before {
     top: 50%;
     left: 50%;
@@ -131,9 +157,9 @@ section.collapsed {
     left: 50%;
     transform: translate(-50%, -50%) rotate(-45deg);
 }
-/* ============== toggle end ============== */
 
-/* ============== icons start ============== */
+/* ---------- Social media icons (right sidebar) ---------- */
+
 #icons {
     position: absolute;
     top: 50%;
@@ -142,9 +168,11 @@ section.collapsed {
     margin: 0;
     padding: 0;
 }
+
 #icons li {
     list-style: none;
 }
+
 #icons li a {
     display: block;
     width: 40px;
@@ -159,13 +187,14 @@ section.collapsed {
     margin: 40px 0;
     transition: 0.8s;
 }
+
 #icons li a:hover {
     background: whitesmoke;
     color: black;
 }
-/* ============== icons end ============== */
 
-/* ============== links start ============== */
+/* ---------- External links list (link.html) ---------- */
+
 #links {
     position: absolute;
     top: 50%;
@@ -174,9 +203,11 @@ section.collapsed {
     margin: 0;
     padding: 0;
 }
+
 #links li {
     list-style: none;
 }
+
 #links li a {
     display: block;
     width: 40rem;
@@ -191,6 +222,7 @@ section.collapsed {
     margin: 40px 0;
     transition: 0.8s;
 }
+
 #links li a:hover {
     background: whitesmoke;
     color: black;
@@ -202,27 +234,24 @@ section.collapsed {
     line-height: 2.7rem;
 }
 
+/* ---------- Footer credit text ---------- */
 
-/* ============== links end ============== */
-
-/* ============== credit end ============== */
 h4 {
     position: absolute;
     bottom: 0;
     text-align: center;
     color: whitesmoke;
-
     font-size: 1rem;
     font-weight: 200;
 }
+
 h4 a {
     color: whitesmoke;
 }
-/* ============== credit end ============== */
 
-/* ============== media query start ============== */
-/* phone */
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+/* ---------- Mobile (320px–480px) ---------- */
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
 
     #particles-js {
         background-size: 44%;
@@ -232,9 +261,9 @@ h4 a {
     section.collapsed {
         transform: translateX(-75%);
     }
-    
+
     .navigation {
-        width: 75%;  
+        width: 75%;
     }
 
     #icons {
@@ -263,5 +292,3 @@ h4 a {
         line-height: 2.2rem;
     }
 }
-
-/* ============== media query end ============== */

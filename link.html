@@ -9,125 +9,96 @@
         content="dersu, dersu space, dersu doğan, dersu dogan, music, musician, composer, producer, dj, band, electronic music, EDM, downtempo, chill out, anatolian, ethnic, song, playlists, piano, dersu web, concert, live show, life switch, disconnection, darker, nephes, crystalline, seismic, reverse, night safe, loopland, loop, müzik, besteci, müzisyen, dj, elektronik müzik, çalma listeleri, piyano, synthesizer">
     <meta name="author" content="Dersu Doğan">
     <title>dersu.space</title>
+
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="/images/goz_trans_Calsma_Yuzeyi_1.svg">
 
-    <!-- bootstrap css file -->
+    <!-- Styles -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <!-- custom css file -->
     <link rel="stylesheet" href="/css/style.css">
-    <!-- custom css file -->
     <link rel="stylesheet" href="/css/about.css">
-    <!-- font awesome file -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css"
         integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" crossorigin="anonymous">
 </head>
 
 <body>
+
+    <!-- Main content area — slides left when navigation is toggled -->
     <section id="main">
 
+        <!-- Header / brand -->
         <header>
             <a href="/" class="navbar-brand">Dersu</a>
         </header>
 
+        <!-- Hamburger toggle (opens slide-out nav) -->
         <div class="toggle" onclick="toggle()"></div>
 
+        <!-- External links list (centered, styled via #links in style.css) -->
         <ul id="links" style="padding-top: 150px;">
-            <li>
-                <a href="https://youtu.be/H9r5y-G2ths">
+            <li><a href="https://youtu.be/H9r5y-G2ths">
                     <h2>Uyanırsam - Youtube</h2>
-                </a>
-            </li>
-            <li>
-                <a href="https://open.spotify.com/track/3tQkfapRX7JGcN7yhIJ1C5?si=da2f7a200d804ab4">
+                </a></li>
+            <li><a href="https://open.spotify.com/track/3tQkfapRX7JGcN7yhIJ1C5?si=da2f7a200d804ab4">
                     <h2>Uyanırsam - Spotify</h2>
-                </a>
-            </li>
-            <li>
-                <a href="https://music.apple.com/tr/album/uyan%C4%B1rsam-single/1570390722">
+                </a></li>
+            <li><a href="https://music.apple.com/tr/album/uyan%C4%B1rsam-single/1570390722">
                     <h2>Uyanırsam - Apple Music</h2>
-                </a>
-            </li>
-            <li>
-                <a href="https://open.spotify.com/album/6L2QNHflLWJxTTaaXvLyw2?si=OPwNB1j-QCGuw8CoPiwgQQ&nd=1">
+                </a></li>
+            <li><a href="https://open.spotify.com/album/6L2QNHflLWJxTTaaXvLyw2?si=OPwNB1j-QCGuw8CoPiwgQQ&nd=1">
                     <h2>Loopland - Spotify</h2>
-                </a>
-            </li>
-            <li>
-                <a href="https://music.apple.com/tr/album/loopland/1556805282">
+                </a></li>
+            <li><a href="https://music.apple.com/tr/album/loopland/1556805282">
                     <h2>Loopland - Apple Music</h2>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.youtube.com/c/dersu">
+                </a></li>
+            <li><a href="https://www.youtube.com/c/dersu">
                     <h2>Youtube</h2>
-                </a>
-            </li>
-            <!-- <li>
-                <a href="https://wannart.com/icerik/28153-dersunun-cikis-albumu-dijital-platformlardaki-yerini-aldi">
-                    <h2>Wannart/Listenary</h2>
-                </a>
-            </li> -->
-            <li>
-                <a
+                </a></li>
+            <!-- <li><a href="https://wannart.com/icerik/28153-dersunun-cikis-albumu-dijital-platformlardaki-yerini-aldi"><h2>Wannart/Listenary</h2></a></li> -->
+            <li><a
                     href="https://karmakaset.co/elektronik-muzigi-anadolu-esintileriyle-harmanlayan-bir-muzik-projesi-dersu/">
                     <h2>Karma Kaset röportajı</h2>
-                </a>
-            </li>
-            <!-- <li>
-                <a href="https://www.birgun.net/haber/loopland-albumunun-cikis-teklisi-nephes-dinleyiciyle-bulustu-335041">
-                    <h2>BirGün haberi</h2>
-                </a>
-            </li> -->
-            <li>
-                <a href="https://www.instagram.com/dersudogan/?hl=tr">
+                </a></li>
+            <!-- <li><a href="https://www.birgun.net/haber/loopland-albumunun-cikis-teklisi-nephes-dinleyiciyle-bulustu-335041"><h2>BirGün haberi</h2></a></li> -->
+            <li><a href="https://www.instagram.com/dersudogan/?hl=tr">
                     <h2>Instagram</h2>
-                </a>
-            </li>
+                </a></li>
         </ul>
 
+        <!-- Particles.js animated background (logo hidden via about.css) -->
         <div id="particles-js"></div>
+
     </section>
 
+    <!-- Slide-out navigation panel -->
     <div class="navigation">
         <ul>
-            <li>
-                <a href="/">Home</a>
-            </li>
-            <li>
-                <a href="/about">About</a>
-            </li>
-            <li>
-                <a href="/soon">Music</a>
-            </li>
-            <li>
-                <a href="/link">Link</a>
-            </li>
-            <li>
-                <a href="/soon">Contact</a>
-            </li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/soon">Music</a></li>
+            <li><a href="/link">Link</a></li>
+            <li><a href="/soon">Contact</a></li>
         </ul>
-
-        <h4>Dersu℗<br>Designed by <a href="https://github.com/tolgayonter">tolgayonter</a><br>Abyo Studio, Ltd. 2021©
+        <h4>
+            Dersu℗<br>
+            Designed by <a href="https://github.com/tolgayonter">tolgayonter</a><br>
+            Abyo Studio, Ltd. 2021©
         </h4>
     </div>
 
-
-    <!-- material script -->
+    <!-- Scripts -->
     <script>
         function toggle() {
             var sec = document.getElementById("main");
             sec.classList.toggle("collapsed");
         }
     </script>
-    <!-- particles js files -->
     <script src="/js/particles.min.js"></script>
     <script src="/js/app.js"></script>
-    <!-- jquery js file -->
     <script src="/js/jquery.min.js"></script>
-    <!-- popper js file -->
     <script src="/js/popper.min.js"></script>
-    <!-- bootstrap js file -->
     <script src="/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>
