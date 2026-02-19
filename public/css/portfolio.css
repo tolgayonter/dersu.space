@@ -5,12 +5,43 @@
 
 /* ---------- Reset / Base ---------- */
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html,
 body {
   width: 100%;
   height: 100%;
+  margin: 0;
+  padding: 0;
   font-size: 100%;
   background: black;
+  overflow-x: hidden;
+}
+
+/* Reset browser defaults that Bootstrap was providing */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 /* ---------- Particles.js background ----------
@@ -44,12 +75,22 @@ header {
 }
 
 header .navbar-brand {
+  display: inline-block;
   color: whitesmoke;
   font-family: quinn;
   top: 1.4rem;
   font-size: 4rem;
   position: absolute;
   transition: 1.4s;
+  text-decoration: none;
+  line-height: inherit;
+  white-space: nowrap;
+}
+
+header .navbar-brand:hover,
+header .navbar-brand:focus {
+  text-decoration: none;
+  color: whitesmoke;
 }
 
 /* ---------- Main section ---------- */
@@ -89,6 +130,13 @@ section {
   padding-bottom: 50px;
 }
 
+.youtube-group iframe {
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 380 / 315;
+  height: auto;
+}
+
 .soundcloud-wrapper {
   width: 100%;
 }
@@ -113,12 +161,50 @@ section {
   color: white;
 }
 
-/* ---------- Mobile (320px–480px) ---------- */
+/* ---------- Tablet (max-width: 768px) ---------- */
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+@media (max-width: 768px) {
 
-  #particles-js {
-    background-size: 44%;
-    background-position: 50% 50%;
+  header .navbar-brand {
+    font-size: 2.5rem;
+  }
+
+  .content {
+    margin: 80px auto;
+    width: 90%;
+  }
+
+  .exhibition-title {
+    font-size: 20px;
+  }
+
+  .exhibition-desc {
+    font-size: 13px;
+  }
+}
+
+/* ---------- Phone (max-width: 480px) ---------- */
+
+@media (max-width: 480px) {
+
+  header .navbar-brand {
+    font-size: 1.8rem;
+  }
+
+  .content {
+    margin: 60px auto;
+    width: 95%;
+  }
+
+  .exhibition-title {
+    font-size: 16px;
+  }
+
+  .exhibition-desc {
+    font-size: 12px;
+  }
+
+  .instagram-group {
+    gap: 10px;
   }
 }

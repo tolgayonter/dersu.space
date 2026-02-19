@@ -11,12 +11,14 @@ particlesJS.load('particles-js', 'particles.json', function() {
 
 /* Otherwise just put the config content (json): */
 
+var particleCount = window.innerWidth < 768 ? 80 : 200;
+
 particlesJS('particles-js',
   
   {
     "particles": {
       "number": {
-        "value": 200,
+        "value": particleCount,
         "density": {
           "enable": true,
           "value_area": 600

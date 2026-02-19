@@ -5,12 +5,44 @@
 
 /* ---------- Reset / Base ---------- */
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 html,
 body {
     width: 100%;
     height: 100%;
+    margin: 0;
+    padding: 0;
     font-size: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
     background: black;
+    overflow-x: hidden;
+}
+
+/* Reset browser defaults that Bootstrap was providing */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
 /* ---------- Particles.js background ----------
@@ -42,12 +74,22 @@ header {
 }
 
 header .navbar-brand {
+    display: inline-block;
     color: whitesmoke;
     font-family: quinn;
     top: 1.4rem;
     font-size: 4rem;
     position: absolute;
     transition: 1.4s;
+    text-decoration: none;
+    line-height: inherit;
+    white-space: nowrap;
+}
+
+header .navbar-brand:hover,
+header .navbar-brand:focus {
+    text-decoration: none;
+    color: whitesmoke;
 }
 
 /* ---------- Main section ----------
@@ -167,6 +209,10 @@ section.collapsed {
     right: 2.5rem;
     margin: 0;
     padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #icons li {
@@ -174,12 +220,12 @@ section.collapsed {
 }
 
 #icons li a {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 40px;
     height: 40px;
-    line-height: 40px;
     font-size: 20px;
-    text-align: center;
     text-decoration: none;
     background-color: black;
     color: whitesmoke;
@@ -201,7 +247,10 @@ section.collapsed {
     left: 50%;
     transform: translate(-50%, -50%);
     margin: 0;
-    padding: 0;
+    padding: clamp(60px, 15vh, 150px) 1rem 0;
+    width: 100%;
+    max-width: 44rem;
+    box-sizing: border-box;
 }
 
 #links li {
@@ -209,18 +258,21 @@ section.collapsed {
 }
 
 #links li a {
-    display: block;
-    width: 40rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 40rem;
     height: 50px;
-    line-height: 40px;
     font-size: 20px;
     text-align: center;
     text-decoration: none;
     background-color: black;
     color: whitesmoke;
     border: 1px solid whitesmoke;
-    margin: 40px 0;
+    margin: 40px auto;
     transition: 0.8s;
+    box-sizing: border-box;
 }
 
 #links li a:hover {
@@ -231,7 +283,7 @@ section.collapsed {
 #links li a h2 {
     font-size: 1.4rem;
     font-weight: 200;
-    line-height: 2.7rem;
+    margin: 0;
 }
 
 /* ---------- Footer credit text ---------- */
@@ -249,13 +301,65 @@ h4 a {
     color: whitesmoke;
 }
 
-/* ---------- Mobile (320px–480px) ---------- */
+/* ---------- Tablet (max-width: 768px) ---------- */
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+@media (max-width: 768px) {
 
-    #particles-js {
-        background-size: 44%;
-        background-position: 50% 50%;
+    header .navbar-brand {
+        font-size: 3rem;
+    }
+
+    section.collapsed {
+        transform: translateX(-50%);
+    }
+
+    .navigation {
+        width: 50%;
+    }
+
+    .navigation ul li a {
+        font-size: 1.8rem;
+    }
+
+    #icons {
+        right: 1.5rem;
+    }
+
+    #icons li a {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+        margin: 24px 0;
+    }
+
+    .toggle {
+        right: 1.5rem;
+    }
+
+    h4 {
+        font-size: 0.85rem;
+    }
+
+    #links {
+        padding-top: clamp(40px, 10vh, 100px);
+    }
+
+    #links li a {
+        height: 44px;
+        margin: 20px auto;
+    }
+
+    #links li a h2 {
+        font-size: 1.2rem;
+    }
+}
+
+/* ---------- Phone (max-width: 480px) ---------- */
+
+@media (max-width: 480px) {
+
+    header .navbar-brand {
+        font-size: 2.4rem;
     }
 
     section.collapsed {
@@ -266,29 +370,34 @@ h4 a {
         width: 75%;
     }
 
+    .navigation ul li a {
+        font-size: 1.5rem;
+    }
+
     #icons {
         width: 1.5rem;
     }
 
     .toggle {
-        right: 1.5rem;
+        right: 1rem;
     }
 
     h4 {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
+    }
+
+    #links {
+        padding-top: clamp(30px, 8vh, 80px);
     }
 
     #links li a {
-        width: 15rem;
         height: 40px;
-        line-height: 40px;
-        font-size: 20px;
-        margin: 20px;
+        font-size: 16px;
+        margin: 14px auto;
     }
 
     #links li a h2 {
-        font-size: 1.2rem;
+        font-size: 1rem;
         font-weight: 100;
-        line-height: 2.2rem;
     }
 }
